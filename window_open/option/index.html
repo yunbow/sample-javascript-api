@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>window.open option Test</title>
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap-theme.min.css" />
+  <script type="text/javascript" src="../../lib/jquery/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../common/js/common.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">window.open option Test (main)</div>
+      <div class="panel-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="topInput">top: </label>
+            <div class="col-sm-2">
+              <input class="form-control text-box single-line" type="text" id="topInput" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="leftInput">left: </label>
+            <div class="col-sm-2">
+              <input class="form-control text-box single-line" type="text" id="leftInput" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="widthInput">width: </label>
+            <div class="col-sm-2">
+              <input class="form-control text-box single-line" type="text" id="widthInput" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="heightInput">height: </label>
+            <div class="col-sm-2">
+              <input class="form-control text-box single-line" type="text" id="heightInput" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="menubarSelect">menubar: </label>
+            <div class="col-sm-2">
+              <select class="form-control" id="menubarSelect">
+                <option value="yes">yes</option>
+                <option value="no" selected>no</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="toolbarSelect">toolbar: </label>
+            <div class="col-sm-2">
+              <select class="form-control" id="toolbarSelect">
+                <option value="yes">yes</option>
+                <option value="no" selected>no</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="locationSelect">location: </label>
+            <div class="col-sm-2">
+              <select class="form-control" id="locationSelect">
+                <option value="yes">yes</option>
+                <option value="no" selected>no</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="statusSelect">status: </label>
+            <div class="col-sm-2">
+              <select class="form-control" id="statusSelect">
+                <option value="yes">yes</option>
+                <option value="no" selected>no</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="resizableSelect">resizable: </label>
+            <div class="col-sm-2">
+              <select class="form-control" id="resizableSelect">
+                <option value="yes">yes</option>
+                <option value="no" selected>no</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="scrollbarsSelect">scrollbars: </label>
+            <div class="col-sm-2">
+              <select class="form-control" id="scrollbarsSelect">
+                <option value="yes">yes</option>
+                <option value="no" selected>no</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+              <input class="btn btn-default" type="button" id="openWindButton" value="window.open" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="itemInput">Log: </label>
+            <div class="col-sm-10">
+              <textarea id="log" class="form-control" rows="10"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
