@@ -7,7 +7,6 @@
 			var canvas = document.createElement('canvas');
 			var canvasContext = canvas.getContext('2d');
 			var img = new Image();
-			img.src = selector.attr("src");
 			img.onload = function () {
 				var imgW = img.width;
 				var imgH = img.height;
@@ -30,6 +29,7 @@
 				canvasContext.putImageData(imgPixels, 0, 0, 0, 0, imgPixels.width, imgPixels.height);
 				selector.attr("src", canvas.toDataURL());
 			};
+			img.src = selector.attr("src");
 		}
 	});
 })();
