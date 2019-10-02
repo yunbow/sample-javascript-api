@@ -1,0 +1,47 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>event propagation Test</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="../lib/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">event propagation Test</div>
+        <div class="panel-body">
+
+          <div id="note">
+            <span>NOTE: Please reload for initialize test tool every time.</span>
+          </div>
+
+          <div id="set-even-tlistener">
+            <button id="setting">Set EventLisener</button>
+          </div>
+
+          <div id="document-listener" class="bg-success"><div class="checkbox"><label><input type="checkbox" name="useCapture-document">enable useCapture</label></div>
+            <pre>document.addEventListener('click', function() {});</pre>
+            <span>not fired</span>
+          </div>
+
+          <div class="box bg-primary"><span>not fired</span><div class="checkbox"><label><input type="checkbox" name="useCapture0">enable useCapture</label></div>
+            <div class="box bg-success"><span>not fired</span><div class="checkbox"><label><input type="checkbox" name="useCapture1">enable useCapture</label></div>
+              <div class="box bg-info"><span>not fired</span><div class="checkbox"><label><input type="checkbox" name="useCapture2">enable useCapture</label></div>
+                <div class="box bg-warning"><span>not fired</span><div class="checkbox"><label><input type="checkbox" name="useCapture3">enable useCapture</label></div>
+                  <button id="fire">Click!!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
