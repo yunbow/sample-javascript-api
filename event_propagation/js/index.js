@@ -9,8 +9,12 @@
 			const boxes = document.querySelectorAll('.box');
 			for (let i = 0; i < boxes.length; i++) {
 				const isEnableUseCapture = $("[name=useCapture" + i + "]").prop("checked");
-				boxes[i].addEventListener('click', function() {
+				const isStopPropagation = $("[name=stopPropagation" + i + "]").prop("checked");
+				boxes[i].addEventListener('click', function(e) {
 					boxes[i].children[0].innerText = counter++;
+					if (isStopPropagation) {
+						e.stopPropagation();
+					}
 				}, isEnableUseCapture);
 			}
 
