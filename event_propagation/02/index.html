@@ -15,7 +15,7 @@
   <body>
     <div class="container">
       <div class="panel panel-default">
-        <div class="panel-heading">event propagation Test (Click Event)</div>
+        <div class="panel-heading">event propagation Test (Scroll Event)</div>
         <div class="panel-body">
 
           <div id="note">
@@ -26,8 +26,13 @@
             <button id="setting">Set EventLisener</button>
           </div>
 
+          <div id="window-listener" class="bg-success"><div class="checkbox"><label><input type="checkbox" name="useCapture-window">enable useCapture</label></div>
+            <pre>window.addEventListener('scroll', function() {});</pre>
+            <span>not fired</span>
+          </div>
+
           <div id="document-listener" class="bg-success"><div class="checkbox"><label><input type="checkbox" name="useCapture-document">enable useCapture</label></div>
-            <pre>document.addEventListener('click', function() {});</pre>
+            <pre>document.addEventListener('scroll', function() {});</pre>
             <span>not fired</span>
           </div>
 
@@ -55,7 +60,15 @@
                     <div class="checkbox"><label><input type="checkbox" name="useCapture3">enable useCapture</label></div>
                     <div class="checkbox"><label><input type="checkbox" name="stopPropagation3">stop propagation</label></div>
                   </div>
-                  <button id="fire">Click!!</button>
+                  <div id="scroll-box" class="bg-primary">
+                    Scroll Box<br />
+                    Scroll Box<br />
+                    Scroll Box<br />
+                    Scroll Box<br />
+                    Scroll Box<br />
+                    Scroll Box<br />
+                    Scroll Box<br />
+                  </div>
                 </div>
               </div>
             </div>
