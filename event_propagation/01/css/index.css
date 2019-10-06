@@ -17,7 +17,8 @@ html {
 }
 
 #set-even-tlistener > button {
-    font-size: 1.0rem;
+    display: inline-box;
+    font-size: 0.8rem;
 }
 
 .box {
