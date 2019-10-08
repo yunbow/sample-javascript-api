@@ -26,14 +26,14 @@
 
 			functionForDocument = function(e) {
 				// 対象外のスクロールイベントはスキップ
-				if (e.target.nodeName === '#body') {
+				if (e.target.nodeName === '#body' || e.target.nodeName === '#document') {
 					return;
 				}
 				$('#document-listener > span').text(counter++);
 			};
 			functionForWindow = function(e) {
 				// 対象外のスクロールイベントはスキップ
-				if (e.target.nodeName === '#body') {
+				if (e.target.nodeName === '#body' || e.target.nodeName === '#document') {
 					return;
 				}
 				$('#window-listener > span').text(counter++);
