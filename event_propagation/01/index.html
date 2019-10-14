@@ -7,10 +7,22 @@
     <title>event propagation Test</title>
     <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="stylesheet" type="text/css" href="extend.css" />
     <script type="text/javascript" src="../../lib/jquery/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        // index.js内で参照される
+        const EVENT_TYPE = 'click';
+        const FILTER_FUNC = function(e) {
+            if (e.target.localName !== 'button' || e.target.innerText !== 'Click!!') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript" src="../index.js"></script>
   </head>
   <body>
     <div class="container">
@@ -18,9 +30,14 @@
         <div class="panel-heading">event propagation Test (Click Event)</div>
         <div class="panel-body">
 
-          <div id="set-even-tlistener">
+          <div id="set-event-listener">
             <button id="setting">Set EventLisener</button>
             <button id="reset">Reset</button>
+          </div>
+
+          <div id="window-listener" class="bg-success"><div class="checkbox"><label><input type="checkbox" name="useCapture-window">enable useCapture</label></div>
+            <pre>window.addEventListener('scroll', function() {});</pre>
+            <span>not fired</span>
           </div>
 
           <div id="document-listener" class="bg-success"><div class="checkbox"><label><input type="checkbox" name="useCapture-document">enable useCapture</label></div>
@@ -52,7 +69,7 @@
                     <div class="checkbox"><label><input type="checkbox" name="useCapture3">enable useCapture</label></div>
                     <div class="checkbox"><label><input type="checkbox" name="stopPropagation3">stop propagation</label></div>
                   </div>
-                  <button id="fire">Click!!</button>
+                  <button id="fire-click-event">Click!!</button>
                 </div>
               </div>
             </div>
