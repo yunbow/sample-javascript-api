@@ -17,18 +17,15 @@
 			const boxes = $('.box');
 			for (let i = 0; i < boxes.length; i++) {
 				funcRegistered[i] = {};
-				const isEnableUseCapture = $("[name=useCapture" + i + "]").prop("checked");
-				const isStopPropagation = $("[name=stopPropagation" + i + "]").prop("checked");
-
-				funcRegistered[i]['useCapture'] = isEnableUseCapture;
+				funcRegistered[i]['useCapture'] = $("[name=useCapture" + i + "]").prop("checked");
 				funcRegistered[i]['func'] = (function(e) {
 					$(this).children('span').text(counter++);
-					if (isStopPropagation) {
+					if ($("[name=stopPropagation" + i + "]").prop("checked")) {
 						e.stopPropagation();
 					}
 				}).bind(boxes[i]);
 
-				boxes[i].addEventListener(eventType, funcRegistered[i]['func'], isEnableUseCapture);
+				boxes[i].addEventListener(eventType, funcRegistered[i]['func'], funcRegistered[i]['useCapture']);
 			}
 
 			funcForDocumentRegistered['func'] = function(e) {
@@ -37,6 +34,9 @@
 					return;
 				}
 				$('#document-listener > span').text(counter++);
+				if ($("[name=stopPropagation-document]").prop("checked")) {
+					e.stopPropagation();
+				}
 			};
 			funcForWindowRegistered['func'] = function(e) {
 				// 対象外のスクロールイベントはスキップ

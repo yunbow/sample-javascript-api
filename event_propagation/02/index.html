@@ -35,12 +35,19 @@
             <button id="reset">Reset</button>
           </div>
 
-          <div id="window-listener" class="bg-success"><div class="checkbox"><label><input type="checkbox" name="useCapture-window">enable useCapture</label></div>
+          <div id="window-listener" class="bg-success">
+            <div class="form-inline">
+              <div class="checkbox"><label><input type="checkbox" name="useCapture-window">enable useCapture</label></div>
+            </div>
             <pre>window.addEventListener('scroll', function() {});</pre>
             <span>not fired</span>
           </div>
 
-          <div id="document-listener" class="bg-success"><div class="checkbox"><label><input type="checkbox" name="useCapture-document">enable useCapture</label></div>
+          <div id="document-listener" class="bg-success">
+            <div class="form-inline">
+              <div class="checkbox"><label><input type="checkbox" name="useCapture-document">enable useCapture</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="stopPropagation-document">stop propagation</label></div>
+            </div>
             <pre>document.addEventListener('scroll', function() {});</pre>
             <span>not fired</span>
           </div>
