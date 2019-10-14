@@ -14,7 +14,7 @@
 				return;
 			}
 
-			const boxes = document.querySelectorAll('.box');
+			const boxes = $('.box');
 			for (let i = 0; i < boxes.length; i++) {
 				funcRegistered[i] = {};
 				const isEnableUseCapture = $("[name=useCapture" + i + "]").prop("checked");
@@ -22,7 +22,7 @@
 
 				funcRegistered[i]['useCapture'] = isEnableUseCapture;
 				funcRegistered[i]['func'] = (function(e) {
-					this.children[0].innerText = counter++;
+					$(this).children('span').text(counter++);
 					if (isStopPropagation) {
 						e.stopPropagation();
 					}
@@ -57,12 +57,15 @@
 	});
 
 	function reset() {
+		if (!funcRegistered[0]) {
+			return;
+		}
 		counter = 0;
 		$('#window-listener > span').text('not fired');
 		$('#document-listener > span').text('not fired');
 		document.removeEventListener(eventType, funcForDocumentRegistered['func'], funcForDocumentRegistered['useCapture']);
 		window.removeEventListener(eventType, funcForWindowRegistered['func'], funcForWindowRegistered['useCapture']);
-		const boxes = document.querySelectorAll('.box');
+		const boxes = $('.box');
 		for (let i = 0; i < boxes.length; i++) {
 			boxes[i].children[0].innerText = 'not fired';
 			boxes[i].removeEventListener(eventType, funcRegistered[i]['func'], funcRegistered[i]['useCapture']);
