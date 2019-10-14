@@ -2,8 +2,8 @@
 
 	let counter = 0;
 	let funcRegistered = new Array(5);
-	let functionForDocument;
-	let functionForWindow;
+	let funcForDocumentRegistered = {};
+	let funcForWindowRegistered = {};
 
 	document.addEventListener('DOMContentLoaded', function() {
 
@@ -31,25 +31,24 @@
 				boxes[i].addEventListener(eventType, funcRegistered[i]['func'], isEnableUseCapture);
 			}
 
-			functionForDocument = function(e) {
+			funcForDocumentRegistered['func'] = function(e) {
 				// 対象外のクリックイベントはスキップ
 				if (filterForWindowAndDocument(e)) {
-				// if (e.target.localName !== 'button' || e.target.innerText !== 'Click!!') {
 					return;
 				}
 				$('#document-listener > span').text(counter++);
 			};
-			functionForWindow = function(e) {
+			funcForWindowRegistered['func'] = function(e) {
 				// 対象外のスクロールイベントはスキップ
 				if (filterForWindowAndDocument(e)) {
 					return;
 				}
 				$('#window-listener > span').text(counter++);
 			};
-			const isEnableUseCapture = $("[name=useCapture-document]").prop("checked");
-			document.addEventListener(eventType, functionForDocument, isEnableUseCapture);
-			const isEnableUseCaptureWindow = $("[name=useCapture-window]").prop("checked");
-			window.addEventListener(eventType, functionForWindow, isEnableUseCaptureWindow);
+            funcForDocumentRegistered['useCapture'] = $("[name=useCapture-document]").prop("checked");;
+			document.addEventListener(eventType, funcForDocumentRegistered['func'], funcForDocumentRegistered['useCapture']);
+            funcForWindowRegistered['useCapture'] = $("[name=useCapture-window]").prop("checked");
+			window.addEventListener(eventType, funcForWindowRegistered['func'], funcForWindowRegistered['useCapture']);
 		});
 
 		$('#reset').click(function() {
@@ -61,8 +60,8 @@
 		counter = 0;
 		$('#window-listener > span').text('not fired');
 		$('#document-listener > span').text('not fired');
-		document.removeEventListener(eventType, functionForDocument);
-		window.removeEventListener(eventType, functionForWindow);
+		document.removeEventListener(eventType, funcForDocumentRegistered['func'], funcForDocumentRegistered['useCapture']);
+		window.removeEventListener(eventType, funcForWindowRegistered['func'], funcForWindowRegistered['useCapture']);
 		const boxes = document.querySelectorAll('.box');
 		for (let i = 0; i < boxes.length; i++) {
 			boxes[i].children[0].innerText = 'not fired';
