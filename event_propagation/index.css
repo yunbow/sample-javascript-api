@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+html {
+    font-size: 20px;
+}
+
+#document-listener {
+    width: 400px;
+    height: 120px;
+    border: black 2px;
+    padding-top: 3px;
+    margin: 20px auto 20px;
+    text-align: center;
+}
+
+#window-listener {
+    width: 400px;
+    height: 120px;
+    border: black 2px;
+    padding-top: 3px;
+    margin: 20px auto 20px;
+    text-align: center;
+}
+
+#set-event-listener {
+    width: 200px;
+    margin: auto;
+}
+
+#set-event-listener > button {
+    display: inline-box;
+    font-size: 0.8rem;
+}
+
+.box {
+    width: 90%;
+    height: 70%;
+    margin: auto;
+    border: solid 1px;
+    padding: 30px;
+    text-align: center;
+}
+
+span {
+    color: blue;
+}
+
+label {
+    color: black;
+}

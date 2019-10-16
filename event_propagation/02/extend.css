@@ -1,0 +1,9 @@
+.box {
+    overflow: scroll;
+}
+
+#scroll-box {
+    color: black;
+    height: 150px;
+    overflow: scroll;
+}

@@ -1,0 +1,88 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>event propagation Test</title>
+    <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="stylesheet" type="text/css" href="extend.css" />
+    <script type="text/javascript" src="../../lib/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        // index.js内で参照される
+        const EVENT_TYPE = 'click';
+        const FILTER_FUNC = function(e) {
+            if (e.target.localName !== 'button' || e.target.innerText !== 'Click!!') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript" src="../index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">event propagation Test (Click Event)</div>
+        <div class="panel-body">
+
+          <div id="set-event-listener">
+            <button id="setting">Set EventLisener</button>
+            <button id="reset">Reset</button>
+          </div>
+
+          <div id="window-listener" class="bg-success">
+            <div class="form-inline">
+              <div class="checkbox"><label><input type="checkbox" name="useCapture-window">enable useCapture</label></div>
+            </div>
+            <pre>window.addEventListener('click', function() {});</pre>
+            <span>not fired</span>
+          </div>
+
+          <div id="document-listener" class="bg-success">
+            <div class="form-inline">
+              <div class="checkbox"><label><input type="checkbox" name="useCapture-document">enable useCapture</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="stopPropagation-document">stop propagation</label></div>
+            </div>
+            <pre>document.addEventListener('click', function() {});</pre>
+            <span>not fired</span>
+          </div>
+
+          <div class="box bg-primary">
+            <span>not fired</span>
+            <div class="form-inline">
+              <div class="checkbox"><label><input type="checkbox" name="useCapture0">enable useCapture</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="stopPropagation0">stop propagation</label></div>
+            </div>
+            <div class="box bg-success">
+              <span>not fired</span>
+              <div class="form-inline">
+                <div class="checkbox"><label><input type="checkbox" name="useCapture1">enable useCapture</label></div>
+                <div class="checkbox"><label><input type="checkbox" name="stopPropagation1">stop propagation</label></div>
+              </div>
+              <div class="box bg-info">
+                <span>not fired</span>
+                <div class="form-inline">
+                  <div class="checkbox"><label><input type="checkbox" name="useCapture2">enable useCapture</label></div>
+                  <div class="checkbox"><label><input type="checkbox" name="stopPropagation2">stop propagation</label></div>
+                </div>
+                <div class="box bg-warning">
+                  <span>not fired</span>
+                  <div class="form-inline">
+                    <div class="checkbox"><label><input type="checkbox" name="useCapture3">enable useCapture</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="stopPropagation3">stop propagation</label></div>
+                  </div>
+                  <button id="fire-click-event">Click!!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
